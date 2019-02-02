@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
     
@@ -12,6 +13,13 @@ class PlaySoundsViewController: UIViewController {
 
     var recordedAudioURL: URL!
     
+    var audioFile: AVAudioFile!
+    var audioEngine: AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var stopTimer: Timer!
+    
+    enum ButtonType: Int { case slow = 0, fast, shipmunk, echo, reverb }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         snailButton.imageView?.contentMode = .scaleAspectFit
@@ -20,14 +28,21 @@ class PlaySoundsViewController: UIViewController {
         vaderButton.imageView?.contentMode = .scaleAspectFit
         echoButton.imageView?.contentMode = .scaleAspectFit
         reverbButton.imageView?.contentMode = .scaleAspectFit
+        
+        setupAudio()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureUI(.notPlaying)
     }
     
     @IBAction func playSoundForButton(_ sender: UIButton) {
-        print("play pressed")
+        
+
     }
     @IBAction func stopButtonPressed(_ sender: Any) {
-        print("Stop pressed")
+
     }
-    
-    
 }
