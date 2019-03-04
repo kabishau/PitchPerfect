@@ -54,4 +54,26 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func stopButtonPressed(_ sender: Any) {
         stopAudio()
     }
+    
+    // MARK: UI Functions
+    
+    func configureUI(_ playState: PlayingState) {
+        switch(playState) {
+        case .playing:
+            setPlayButtonsEnabled(false)
+            stopButton.isEnabled = true
+        case .notPlaying:
+            setPlayButtonsEnabled(true)
+            stopButton.isEnabled = false
+        }
+    }
+    
+    func setPlayButtonsEnabled(_ enabled: Bool) {
+        snailButton.isEnabled = enabled
+        chipmunkButton.isEnabled = enabled
+        rabbitButton.isEnabled = enabled
+        vaderButton.isEnabled = enabled
+        echoButton.isEnabled = enabled
+        reverbButton.isEnabled = enabled
+    }
 }
