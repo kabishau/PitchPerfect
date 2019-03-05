@@ -7,37 +7,38 @@ class RecordSoundsViewController: UIViewController {
 
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var stopRecordingButton: UIButton!
     
     enum RecordState {
-        case recording, notRecording
+        case recording
+        case notRecording
     }
+    
+    var recordingState: RecordState = .notRecording
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stopRecordingButton.isEnabled = false
     }
 
     @IBAction func recordAudio(_ sender: Any) {
-        configureUI(.recording)
-        startRecordSound()
+        if recordingState == .notRecording {
+            recordingState = .recording
+            configureUI(for: recordingState)
+            startRecordSound()
+        } else {
+            recordingState = .notRecording
+            configureUI(for: recordingState)
+            stopRecordSound()
+        }
     }
     
-    @IBAction func stopRecording(_ sender: Any) {
-        configureUI(.notRecording)
-        stopRecordSound()
-    }
-    
-    func configureUI(_ recordState: RecordState) {
+    func configureUI(for recordState: RecordState) {
         switch recordState {
         case .recording:
-            recordingLabel.text = "Recording in Progress"
-            stopRecordingButton.isEnabled = true
-            recordButton.isEnabled = false
+            recordingLabel.text = "Tap to Finish Recording"
+            recordButton.setImage(UIImage(named: "Stop"), for: .normal)
         case .notRecording:
-            recordingLabel.text = "Tap to Record"
-            stopRecordingButton.isEnabled = false
-            recordButton.isEnabled = true
+            recordingLabel.text = "Tap to Start Recording"
+            recordButton.setImage(UIImage(named: "Record"), for: .normal)
         }
     }
     

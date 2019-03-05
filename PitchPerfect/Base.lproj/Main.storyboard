@@ -35,24 +35,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ml-ay-FI8">
-                                <rect key="frame" x="121.5" y="422.5" width="77.5" height="77.5"/>
-                                <state key="normal" image="Stop"/>
-                                <connections>
-                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yYS-d7-fCq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Zrn-bb-KWa" firstAttribute="top" secondItem="aLR-n8-KwA" secondAttribute="bottom" constant="20" id="A7Y-rP-HoP"/>
                             <constraint firstItem="aLR-n8-KwA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BNp-dv-MQi"/>
                             <constraint firstItem="Zrn-bb-KWa" firstAttribute="centerX" secondItem="aLR-n8-KwA" secondAttribute="centerX" id="D69-go-cbV"/>
-                            <constraint firstItem="6ml-ay-FI8" firstAttribute="top" secondItem="Zrn-bb-KWa" secondAttribute="bottom" constant="20" id="Gwl-Rl-GgV"/>
-                            <constraint firstItem="6ml-ay-FI8" firstAttribute="centerX" secondItem="Zrn-bb-KWa" secondAttribute="centerX" id="Qhd-O9-TVn"/>
-                            <constraint firstItem="6ml-ay-FI8" firstAttribute="width" secondItem="aLR-n8-KwA" secondAttribute="width" multiplier="0.5" id="eDM-aW-DiS"/>
                             <constraint firstItem="aLR-n8-KwA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="o6d-bW-EdX"/>
-                            <constraint firstItem="6ml-ay-FI8" firstAttribute="height" secondItem="aLR-n8-KwA" secondAttribute="height" multiplier="0.5" id="s0H-Mf-DJn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -60,7 +49,6 @@
                     <connections>
                         <outlet property="recordButton" destination="aLR-n8-KwA" id="23V-Yt-oSY"/>
                         <outlet property="recordingLabel" destination="Zrn-bb-KWa" id="oSe-L6-ZqW"/>
-                        <outlet property="stopRecordingButton" destination="6ml-ay-FI8" id="mDZ-4k-Jq0"/>
                         <segue destination="ciK-gM-jRF" kind="show" identifier="stopRecording" id="7Oa-lO-ag5"/>
                     </connections>
                 </viewController>
