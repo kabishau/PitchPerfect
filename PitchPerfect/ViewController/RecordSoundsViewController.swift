@@ -17,6 +17,15 @@ class RecordSoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI(for: .notRecording)
+        
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.3492083902, green: 0.4501926694, blue: 0.535494351, alpha: 1)
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.title = "Pitch Perfect"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+
     }
 
     @IBAction func recordAudio(_ sender: Any) {
@@ -34,10 +43,10 @@ class RecordSoundsViewController: UIViewController {
     func configureUI(for recordState: RecordState) {
         switch recordState {
         case .recording:
-            recordingLabel.text = "Tap to Finish Recording"
+            recordingLabel.text = "Tap to finish recording"
             recordButton.setImage(UIImage(named: "Stop"), for: .normal)
         case .notRecording:
-            recordingLabel.text = "Tap to Start Recording"
+            recordingLabel.text = "Tap to start recording"
             recordButton.setImage(UIImage(named: "Record"), for: .normal)
         }
     }

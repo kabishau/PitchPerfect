@@ -30,6 +30,9 @@ class PlaySoundsViewController: UIViewController {
         reverbButton.imageView?.contentMode = .scaleAspectFit
         
         setupAudio()
+        
+        self.navigationItem.title = "Pitch Perfect"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
