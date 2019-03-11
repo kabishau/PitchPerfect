@@ -31,7 +31,7 @@ class PlaySoundsViewController: UIViewController {
         
         setupAudio()
         
-        self.navigationItem.title = "Pitch Perfect"
+        self.navigationItem.title = "Select a sound filter"
         
     }
     
