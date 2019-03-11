@@ -2,8 +2,6 @@ import UIKit
 import AVFoundation
 
 class RecordSoundsViewController: UIViewController {
-    
-    var audioRecorder: AVAudioRecorder!
 
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
@@ -13,6 +11,7 @@ class RecordSoundsViewController: UIViewController {
         case notRecording
     }
     
+    var audioRecorder: AVAudioRecorder!
     var recordingState: RecordState = .notRecording
     
     override func viewDidLoad() {
@@ -24,7 +23,7 @@ class RecordSoundsViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .white
         self.navigationItem.title = "Pitch Perfect"
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
     }
 

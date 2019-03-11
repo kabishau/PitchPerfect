@@ -10,29 +10,36 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var echoButton: UIButton!
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
-
-    var recordedAudioURL: URL!
     
+    var effectButtons: [UIButton] = []
+    
+    var recordedAudioURL: URL!
     var audioFile: AVAudioFile!
     var audioEngine: AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: Timer!
     
-    enum ButtonType: Int { case slow = 0, fast, chipmunk, vader, echo, reverb }
+    enum ButtonType: Int {
+        case slow = 0
+        case fast
+        case chipmunk
+        case vader
+        case echo
+        case reverb
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        snailButton.imageView?.contentMode = .scaleAspectFit
-        chipmunkButton.imageView?.contentMode = .scaleAspectFit
-        rabbitButton.imageView?.contentMode = .scaleAspectFit
-        vaderButton.imageView?.contentMode = .scaleAspectFit
-        echoButton.imageView?.contentMode = .scaleAspectFit
-        reverbButton.imageView?.contentMode = .scaleAspectFit
-        
-        setupAudio()
         
         self.navigationItem.title = "Select a sound filter"
         
+        effectButtons = [snailButton, chipmunkButton, rabbitButton, vaderButton, echoButton, reverbButton]
+        
+        for button in effectButtons {
+            button.imageView?.contentMode = .scaleAspectFit
+        }
+        
+        setupAudio()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,11 +79,9 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func setPlayButtonsEnabled(_ enabled: Bool) {
-        snailButton.isEnabled = enabled
-        chipmunkButton.isEnabled = enabled
-        rabbitButton.isEnabled = enabled
-        vaderButton.isEnabled = enabled
-        echoButton.isEnabled = enabled
-        reverbButton.isEnabled = enabled
+        
+        for button in effectButtons {
+            button.isEnabled = enabled
+        }
     }
 }

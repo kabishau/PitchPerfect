@@ -1,12 +1,7 @@
-
 import UIKit
 import AVFoundation
 
-// MARK: - PlaySoundsViewController: AVAudioPlayerDelegate
-
 extension PlaySoundsViewController: AVAudioPlayerDelegate {
-    
-    // MARK: Alerts
     
     struct Alerts {
         static let DismissAlert = "Dismiss"
